@@ -33,6 +33,7 @@ public class Part {
         this.partPrice = partPrice;
         this.quantity = quantity;
     }
+
 //GETTERS AND SETTERS
     public Long getId() {
         return id;
@@ -67,5 +68,21 @@ public class Part {
     }
     public void setQuantity(short quantity){
         this.quantity = quantity;
+    }
+
+//METHODS
+    @Override
+    public String toString() {
+        return "Part{" +
+                "id=" + id +
+                ", partTitle='" + partTitle + '\'' +
+                ", partSerialNumber='" + partSerialNumber + '\'' +
+                ", partPrice=" + partPrice +
+                ", quantity=" + quantity +
+                '}';
+    }
+
+    public void addToQuantity(short number){
+        this.setQuantity((short) (this.getQuantity()+number));
     }
 }
