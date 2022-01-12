@@ -2,18 +2,20 @@ package com.joedorseyjr.partsInventory.controller;
 
 import com.joedorseyjr.partsInventory.entity.Part;
 import com.joedorseyjr.partsInventory.service.PartService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
 
-import javax.persistence.GeneratedValue;
 import java.util.List;
 
 @RestController
 @RequestMapping("/api") // http://localhost:8080/api - Starting point
 public class PartController {
+
     private final PartService partService;
 
-    public PartController(@Qualifier("PartServiceIMPL")PartService partService) {
+    @Autowired
+    public PartController(@Qualifier("partServiceIMPL")PartService partService) {
         this.partService = partService;
     }
 
