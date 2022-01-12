@@ -2,6 +2,8 @@ package com.joedorseyjr.partsInventory.service;
 
 import com.joedorseyjr.partsInventory.DAO.PartDAO;
 import com.joedorseyjr.partsInventory.entity.Part;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -10,7 +12,8 @@ import java.util.List;
 public class PartServiceIMPL implements PartService{
     private final PartDAO partDAO;
 
-    public PartServiceIMPL(PartDAO partDAO) {
+    @Autowired
+    public PartServiceIMPL( PartDAO partDAO) {
         this.partDAO = partDAO;
     }
 
