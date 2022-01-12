@@ -3,6 +3,7 @@ package com.joedorseyjr.partsInventory.DAO;
 import com.joedorseyjr.partsInventory.entity.Part;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -13,6 +14,7 @@ import java.util.List;
 public class PartIMPL implements PartDAO{
     private final EntityManager entityManager;
 
+    @Autowired
     public PartIMPL(EntityManager entityManager) {
         this.entityManager = entityManager;
     }
@@ -21,7 +23,7 @@ public class PartIMPL implements PartDAO{
     @Transactional
     public List<Part> findAll() {
         Session session = entityManager.unwrap(Session.class);
-        Query<Part>partQuery = session.createQuery("FROM part");
+        Query<Part>partQuery = session.createQuery("from Part");
         return partQuery.getResultList();
     }
 
